@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { Route } from 'react-router-dom';
+import Index from './page/Index';
+import Dns from './page/Dns';
+import Log from './page/Log';
+import Waf from './page/Waf';
+import Wan from './page/Wan';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route path="/" exact component={Index} />
+      <Route path="/dns" component={Dns} />
+      <Route path="/log" component={Log} />
+      <Route path="/waf" component={Waf} />
+      <Route path="/wan" component={Wan} />
     </div>
   );
 }
