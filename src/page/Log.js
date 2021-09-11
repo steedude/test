@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Log() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return <div></div>;
 }
 
-export default Log
+export default Log;

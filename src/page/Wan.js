@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Wan() {
-    return (
-        <div>
-            wan
-        </div>
-    )
+  return <div>wan</div>;
 }
 
-export default Wan
+export default Wan;

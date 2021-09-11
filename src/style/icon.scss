@@ -1,0 +1,84 @@
+@font-face {
+    font-family: "v-icon";
+    src: url("../iconfont/iconfont.ttf") format("truetype"), url("../iconfont/iconfont.woff") format("woff"), url("../iconfont/iconfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+.customIcon {
+    font-family: "v-icon";
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.v-icon{
+    &[name="up"]:before{
+        content: "\e9cb";
+    };
+    &[name="check"]:before{
+        content: "\e9cc";
+    };
+    &[name="layer"]:before{
+        content: "\e9cd";
+    };
+    &[name="edit"]:before{
+        content: "\e9ce";
+    };
+    &[name="close"]:before{
+        content: "\e9cf";
+    };
+    &[name="menu"]:before{
+        content: "\e9d0";
+    };
+    &[name="down"]:before{
+        content: "\e9d1";
+    };
+    &[name="next"]:before{
+        content: "\e9d2";
+    };
+    &[name="prev"]:before{
+        content: "\e9d3";
+    };
+    &[name="globe"]:before{
+        content: "\e9d4";
+    };
+    &[name="people"]:before{
+        content: "\e9d5";
+    };
+    &[name="card"]:before{
+        content: "\e677";
+    };
+    &[name="no-entry-sign"]:before{
+        content: "\e9d6";
+    };
+    &[name="plus"]:before{
+        content: "\e9d7";
+    };
+    &[name="log-out"]:before{
+        content: "\e9d8";
+    };
+    &[name="share"]:before{
+        content: "\e9d9";
+    };
+    &[name="envelope"]:before{
+        content: "\e9da";
+    };
+    &[name="settings"]:before{
+        content: "\e9dc";
+    };
+    &[name="serch"]:before{
+        content: "\e9dd";
+    };
+    &[name="verified"]:before{
+        content: "\e9de";
+    };
+    &[name="group"]:before{
+        content: "\e9df";
+    };
+    &[name="delete"]:before{
+        content: "\e9e0";
+    };
+    &[name="notification"]:before{
+        content: "\e9db";
+    };
+}
