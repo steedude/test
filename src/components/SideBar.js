@@ -1,37 +1,52 @@
 import React, { useState } from "react";
-// import { withRouter } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Icon from "../components/Icon";
 import styled from "styled-components";
 
 const Menu = styled.div`
   width: 240px;
   height: 100vh;
-  background: $purple;
+  background: var(--purple);
+  color: #fff;
+  padding-top: 50px;
   img {
-    width: 75%;
+    width: 65%;
     display: block;
     margin: auto;
   }
   .level1 {
+    padding-top: 50%;
     li {
-      padding: 8px 0;
+      padding: 4px 0;
       cursor: pointer;
+      &:hover {
+        p {
+          background: var(--purple_light);
+        }
+      }
     }
   }
-  .leve2 {
+  .level2 {
     padding: 8px 0;
     li {
       display: flex;
+      padding: 8px 0;
       justify-content: center;
+      span {
+        color: #fff;
+      }
     }
   }
   p {
-    padding: 8px 0;
+    padding: 16px 0;
     display: flex;
-    width: 40%;
     justify-content: center;
-    &::hover {
-      background: $purple_light;
+    color: #fff;
+    span {
+      width: 40%;
+      color: #fff;
+      text-align: left;
     }
     i {
       display: block;
@@ -42,6 +57,8 @@ const Menu = styled.div`
 `;
 
 function SideBar() {
+  const history = useHistory();
+  const location = useLocation();
   const [nowActive, setNowActive] = useState("");
   const list = [
     { id: "menu", name: "Dashboard", icon: "menu", link: "/", subList: [] },
@@ -56,18 +73,19 @@ function SideBar() {
     { id: "dns", name: "DNS管理", icon: "globe", link: "/dns", subList: [] },
     { id: "wan", name: "主選項", icon: "layer", link: "/wan", subList: [] },
   ];
-  const handleClick = (id) => {
+  const handleClick = ({ id, link }) => {
     setNowActive(id);
+    // history.push(link);
   };
   return (
     <Menu>
-      <img className="w-3/4 m-auto" src={`/image/logo_${"routeName"}.png`} alt="" />
+      <img src={`/image/logo_${location.pathname.substring(1)}.png`} alt="" />
       <ul className="level1">
         {list.map((item, i) => {
           return (
-            <li key={i + "sid"} onClick={() => handleClick(item.id)}>
-              <p className="">
-                <Icon name="item.icon" />
+            <li key={i + "sid"} onClick={() => handleClick(item)}>
+              <p className={nowActive === item.id ? "active" : ""}>
+                <Icon name={item.icon} />
                 <span>{item.name}</span>
                 <Icon name={nowActive === item.id ? "up" : "down"} />
               </p>
@@ -75,7 +93,7 @@ function SideBar() {
                 <ul className="level2">
                   {item.subList.map((vo, k) => {
                     return (
-                      <li>
+                      <li key={k + "sub"}>
                         <span>{vo.name}</span>
                       </li>
                     );
