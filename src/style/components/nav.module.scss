@@ -2,8 +2,18 @@
     ul{
         display: flex;
         justify-content: flex-end;
-        height: 40px;
+        height: 60px;
         align-items: center;
         padding: 0 10px;
+    }
+}
+.list_item{
+    cursor: pointer;
+    margin: 0 4px;
+    i{
+        padding: 0 4px;
+    }
+    &:hover{
+        color: $purple;   
     }
 }

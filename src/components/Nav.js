@@ -1,42 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
-// import Icon from '../components/Icon';
+import Icon from '../components/Icon';
 import style from '../style/components/nav.module.scss';
-const ListItem = styled.li`
-  @apply mx-4 cursor-pointer hover:text-purple-600;
+const RedDot = styled.span`
+  position: relative;
+  &::after {
+    content: '';
+    background: red;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+  }
 `;
 
 function Nav() {
   return (
     <nav className={`block ${style.nav}`}>
       <ul className="flex justify-end h-14 items-center px-5">
-        <p className="bg-opacity-40 bg-orange_c-light px-12 hover:text-purple_c flex sm:text-orange_c-light">
-          123
-        </p>
-        <ListItem>
-          <span className="red-dot relative">
-            <icon name="envelope" />
-          </span>
+        <li className={style.list_item}>
+          <RedDot>
+            <Icon name="envelope" />
+          </RedDot>
           信件
-        </ListItem>
-        <ListItem>
-          <span className="red-dot relative">
-            <icon name="notification" />
-          </span>
+        </li>
+        <li className={style.list_item}>
+          <RedDot>
+            <Icon name="notification" />
+          </RedDot>
           通知
-        </ListItem>
-        <ListItem>
-          <icon name="settings" />
+        </li>
+        <li className={style.list_item}>
+          <Icon name="settings" />
           設置
-        </ListItem>
-        <ListItem>
-          <icon name="people" />
+        </li>
+        <li className={style.list_item}>
+          <Icon name="people" />
           6687899
-        </ListItem>
-        <ListItem>
-          <icon name="log-out" />
+        </li>
+        <li className={style.list_item}>
+          <Icon name="log-out" />
           登出
-        </ListItem>
+        </li>
       </ul>
     </nav>
   );
