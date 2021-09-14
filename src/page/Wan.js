@@ -1,5 +1,5 @@
-import React from 'react';
-import SideBar from '../components/SideBar';
+import React from "react";
+import SideBar from "../components/SideBar";
 function Wan() {
   return (
     <div>

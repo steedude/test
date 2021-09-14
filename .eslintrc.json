@@ -5,7 +5,10 @@
       "prettier/prettier": [
         "error",
         {
-          "singleQuote": true
+          "useTabs": false,
+          "printWidth": 160, //預設值為80
+          "tabWidth": 2,
+          "endOfLine": "auto"
         }
       ],
       "react/jsx-filename-extension": [

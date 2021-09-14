@@ -1,13 +1,13 @@
-import React from 'react';
-import Nav from '../components/Nav';
-import { withRouter } from 'react-router-dom';
-import style from '../style/page/index.module.scss';
+import React from "react";
+import Nav from "../components/Nav";
+import { withRouter } from "react-router-dom";
+import style from "../style/page/index.module.scss";
 function Index(props) {
   const list = [
-    { name: '線路管家', img: 'logo_wan', link: '/wan' },
-    { name: '智能DBA', img: 'logo_log', link: '/log' },
-    { name: '域名管家', img: 'logo_dns', link: '/dns' },
-    { name: 'SWAF', img: 'logo_waf', link: '/waf' },
+    { name: "線路管家", img: "logo_wan", link: "/wan" },
+    { name: "智能DBA", img: "logo_log", link: "/log" },
+    { name: "域名管家", img: "logo_dns", link: "/dns" },
+    { name: "SWAF", img: "logo_waf", link: "/waf" },
   ];
 
   const goLink = (link) => {
@@ -17,7 +17,7 @@ function Index(props) {
     <div
       className={style.page}
       style={{
-        backgroundImage: `url(${'/image/bg2.png'})`,
+        backgroundImage: `url(${"/image/bg2.png"})`,
       }}
     >
       <div className={style.wrapper}>

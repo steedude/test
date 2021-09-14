@@ -1,10 +1,10 @@
-import './App.css';
-import { Route } from 'react-router-dom';
-import Index from './page/Index';
-import Dns from './page/Dns';
-import Log from './page/Log';
-import Waf from './page/Waf';
-import Wan from './page/Wan';
+import "./App.css";
+import { Route } from "react-router-dom";
+import Index from "./page/Index";
+import Dns from "./page/Dns";
+import Log from "./page/Log";
+import Waf from "./page/Waf";
+import Wan from "./page/Wan";
 function App() {
   return (
     <div className="App">

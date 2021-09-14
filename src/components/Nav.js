@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
-import Icon from '../components/Icon';
-import style from '../style/components/nav.module.scss';
+import React from "react";
+import styled from "styled-components";
+import Icon from "../components/Icon";
+import style from "../style/components/nav.module.scss";
 const RedDot = styled.span`
   position: relative;
   &::after {
-    content: '';
+    content: "";
     background: red;
     width: 8px;
     height: 8px;
