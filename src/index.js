@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+// import { createBrowserHistory } from "history";
 import { BrowserRouter, Switch } from "react-router-dom";
 import "./style/main.scss";
+// const history = createBrowserHistory();
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

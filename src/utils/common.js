@@ -3,18 +3,28 @@ import qs from "qs";
 import * as numeral from "numeral";
 import { version } from "../../package.json";
 import CryptoJS from "crypto-js";
-import * as store from "../store/index";
-import * as router from "@/router";
-
-//import Vue from 'vue'
-
-const config = require(`@/configs/basic/${process.env.VUE_APP_BASIC_TYPE}.js`).defaultConfig;
-
+import store from "../store";
+import { addTodo } from "../store/slice/todo";
+// import store from "../store";
+import { createBrowserHistory } from "history";
+const config = require(`../configs/basic/${process.env.REACT_APP_BASIC_TYPE}.js`).defaultConfig;
+console.log("store", store);
 const api = axios.create({
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
   },
 });
+
+export const test = () => {
+  console.log("store", store);
+  const state = store.getState();
+  console.log("store-state", state);
+  console.log("todoList", state.todo.todolist);
+  store.dispatch(addTodo({ id: new Date().getTime(), name: "123456" }));
+  setTimeout(() => {
+    createBrowserHistory().push("/wan");
+  }, 3500);
+};
 
 export function Cookie(set, a, b, expireDays) {
   let isSuportLocalStorge = store.default.state.localStorageSuport;
@@ -210,8 +220,8 @@ export function getAjax(oldUrl, oldData = {}) {
       response = response.data;
 
       if (response.resultCode == "1001") {
-        router.default.push("/noService");
-        store.default.commit("updateNoService", response.resultMap.blockIp);
+        createBrowserHistory.push("/noService");
+        // TODO　store.default.commit("updateNoService", response.resultMap.blockIp);
         return response;
       }
 
@@ -226,12 +236,12 @@ export function getAjax(oldUrl, oldData = {}) {
         Cookie("remove", "tid");
         Cookie("remove", "sid");
         Cookie("remove", "isFreeAccount");
-        store.default.commit("emptyUser");
+        // TODO store.default.commit("emptyUser");
         if (localStorage.getItem("isApp")) {
           // window.location = `${window.location.origin}/redirect?p=closeToLogin`
           window.location = `closeToLogin`;
         } else {
-          router.default.push("/acc");
+          createBrowserHistory.push("/acc");
         }
 
         showMsg(response.msg);
@@ -309,7 +319,6 @@ export function getImgAjax(url, formData) {
     xhr.send(formData);
   });
 }
-
 
 export function addChannel(url) {
   //注册，登录一律带channel
@@ -813,7 +822,6 @@ export function evil(str) {
   return new fn("return " + str)();
 }
 
-
 export function sleep(delay) {
   var start = new Date().getTime();
   while (new Date().getTime() < start + delay);
@@ -864,11 +872,11 @@ export function getUrlParam(name) {
 export function showMsg(html, fun, cancel = false, otherBtn) {
   const body = document.getElementsByTagName("body")[0];
   body.style = "overflow:hidden";
-  Vue.prototype.$bus.$emit("showMsg", html, fun, cancel, otherBtn);
+  //   Vue.prototype.$bus.$emit("showMsg", html, fun, cancel, otherBtn);
 }
 
 export function showToast(msg) {
   if (msg) {
-    Vue.prototype.$bus.$emit("toast", msg);
+    // Vue.prototype.$bus.$emit("toast", msg);
   }
 }
