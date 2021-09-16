@@ -15,15 +15,13 @@ const api = axios.create({
   },
 });
 
+const history = createBrowserHistory({ forceRefresh: true });
+
 export const test = () => {
-  console.log("store", store);
   const state = store.getState();
-  console.log("store-state", state);
   console.log("todoList", state.todo.todolist);
   store.dispatch(addTodo({ id: new Date().getTime(), name: "123456" }));
-  setTimeout(() => {
-    createBrowserHistory().push("/wan");
-  }, 3500);
+  history.push("/wan");
 };
 
 export function Cookie(set, a, b, expireDays) {
