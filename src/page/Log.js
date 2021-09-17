@@ -6,6 +6,7 @@ function Log() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("cityList---", cityList);
     dispatch(fetchUserById(123));
   }, []);
 
