@@ -8,7 +8,6 @@ import { addTodo } from "../store/slice/todo";
 // import store from "../store";
 import { createBrowserHistory } from "history";
 const config = require(`../configs/basic/${process.env.REACT_APP_BASIC_TYPE}.js`).defaultConfig;
-console.log("store", store);
 const api = axios.create({
   headers: {
     "Content-Type": "application/x-www-form-urlencoded",
