@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import Icon from "../components/Icon";
 import styled from "styled-components";
 
@@ -43,6 +42,9 @@ const Menu = styled.div`
     display: flex;
     justify-content: center;
     color: #fff;
+    &.active {
+      background: var(--purple_light);
+    }
     span {
       width: 40%;
       color: #fff;
@@ -72,19 +74,24 @@ function SideBar() {
     { id: "waf", name: "帳號管理", icon: "people", link: "/waf", subList: [] },
     { id: "dns", name: "DNS管理", icon: "globe", link: "/dns", subList: [] },
     { id: "wan", name: "主選項", icon: "layer", link: "/wan", subList: [] },
+    { id: "log", name: "log test", icon: "layer", link: "/log", subList: [] },
   ];
-  const handleClick = ({ id, link }) => {
+  const handleClick = ({ id, link, subList }) => {
     setNowActive(id);
-    // history.push(link);
+    if (subList.length === 0) {
+      history.push(link);
+    }
   };
   return (
     <Menu>
-      <img src={`/image/logo_${location.pathname.substring(1)}.png`} alt="" />
+      <Link to="/">
+        <img src={`/image/logo_${location.pathname.substring(1)}.png`} alt="" />
+      </Link>
       <ul className="level1">
         {list.map((item, i) => {
           return (
             <li key={i + "sid"} onClick={() => handleClick(item)}>
-              <p className={nowActive === item.id ? "active" : ""}>
+              <p className={location.pathname === item.link ? "active" : ""}>
                 <Icon name={item.icon} />
                 <span>{item.name}</span>
                 <Icon name={nowActive === item.id ? "up" : "down"} />

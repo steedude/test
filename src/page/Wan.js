@@ -6,15 +6,6 @@ import styled from "styled-components";
 
 const WanComponent = styled.div`
   display: flex;
-  .wrapper {
-    width: calc(100% - 240px);
-    min-height: 100vh;
-    background: rgb(243, 243, 243);
-    .container {
-      width: 80%;
-      margin: 50px auto 0;
-    }
-  }
   .title-bar {
     display: flex;
     align-items: center;
