@@ -6,13 +6,13 @@ const DefaultComponent = styled.div`
   display: flex;
 `;
 
-function DefaultTemp() {
+function DefaultTemp(props) {
   return (
     <DefaultComponent>
-      <div className="wrapper">
-        <div className="container"></div>
-      </div>
       <SideBar />
+      <div className="wrapper">
+        <div className="container">{props.children}</div>
+      </div>
     </DefaultComponent>
   );
 }

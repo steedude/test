@@ -3,11 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { addTodo } from "../store/slice/todo";
 import * as common from "../utils/common";
 import styled from "styled-components";
-import SideBar from "../components/SideBar";
+import DefaultTemp from "../components/DefaultTemp";
 
-const DnsComponent = styled.div`
-  display: flex;
-`;
+const DnsComponent = styled.div``;
 
 function Dns() {
   const [listName, setListName] = useState("");
@@ -23,24 +21,21 @@ function Dns() {
   };
   return (
     <DnsComponent>
-      <div className="wrapper">
-        <div className="container">
-          <SideBar />
-          <input
-            value={listName}
-            onChange={(e) => {
-              setListName(e.target.value);
-            }}
-          />
-          <button onClick={test}>test</button>
-          <button onClick={addTodoList}>add</button>
-          <ul>
-            {todolist.map((todo, i) => {
-              return <li key={i + "list"}>{todo.name}</li>;
-            })}
-          </ul>
-        </div>
-      </div>
+      <DefaultTemp>
+        <input
+          value={listName}
+          onChange={(e) => {
+            setListName(e.target.value);
+          }}
+        />
+        <button onClick={test}>test</button>
+        <button onClick={addTodoList}>add</button>
+        <ul>
+          {todolist.map((todo, i) => {
+            return <li key={i + "list"}>{todo.name}</li>;
+          })}
+        </ul>
+      </DefaultTemp>
     </DnsComponent>
   );
 }

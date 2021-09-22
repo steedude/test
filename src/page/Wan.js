@@ -1,11 +1,10 @@
 import React from "react";
-import SideBar from "../components/SideBar";
 import Nav from "../components/Nav";
 import Icon from "../components/Icon";
+import DefaultTemp from "../components/DefaultTemp";
 import styled from "styled-components";
 
 const WanComponent = styled.div`
-  display: flex;
   .title-bar {
     display: flex;
     align-items: center;
@@ -33,86 +32,83 @@ const WanComponent = styled.div`
 function Wan() {
   return (
     <WanComponent>
-      <SideBar />
-      <div className="wrapper">
-        <div className="container">
-          <Nav />
-          <div className="title-bar">
-            <h1 className="title">站點管理 > V1A-國內</h1>
-            <button className="btn green-light">
-              <Icon name="edit" />
-              變更站點名稱
-            </button>
-          </div>
-          <div className="search-bar">
-            <input type="text" placeholder="站點名稱搜尋" />
-            <button className="btn purple">
-              <Icon name="serch" />
-            </button>
-            <button className="btn purple-light">匯入</button>
-            <button className="btn purple-light">匯出</button>
-          </div>
-          <div className="block main">
-            <div className="button-bar">
-              <button className="btn red-light">批次刪除</button>
-              <button className="btn orange-light">新增域名</button>
-            </div>
-            <table className="table">
-              <thead>
-                <tr className="">
-                  <th>批次</th>
-                  <th>欄位名稱</th>
-                  <th>建立時間</th>
-                  <th>備註</th>
-                  <th>功能</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td>123.123.12.111</td>
-                  <td>2020-04-09 12:00</td>
-                  <td>永久封鎖</td>
-                  <td>
-                    <button className="btn rounded red-light">
-                      <Icon name="delete" />
-                      刪除
-                    </button>
-                    <button className="btn rounded green-light">
-                      <Icon name="edit" />
-                      修改
-                    </button>
-                    <button className="btn rounded green-light">
-                      <Icon name="edit" />
-                      備註
-                    </button>
-                  </td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td>123.123.12.111</td>
-                  <td>2020-04-09 12:00</td>
-                  <td>永久封鎖</td>
-                  <td>
-                    <button className="btn rounded red-light">
-                      <Icon name="delete" />
-                      刪除
-                    </button>
-                    <button className="btn rounded green-light">
-                      <Icon name="edit" />
-                      修改
-                    </button>
-                    <button className="btn rounded green-light">
-                      <Icon name="edit" />
-                      備註
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+      <DefaultTemp>
+        <Nav />
+        <div className="title-bar">
+          <h1 className="title">站點管理 > V1A-國內</h1>
+          <button className="btn green-light">
+            <Icon name="edit" />
+            變更站點名稱
+          </button>
         </div>
-      </div>
+        <div className="search-bar">
+          <input type="text" placeholder="站點名稱搜尋" />
+          <button className="btn purple">
+            <Icon name="serch" />
+          </button>
+          <button className="btn purple-light">匯入</button>
+          <button className="btn purple-light">匯出</button>
+        </div>
+        <div className="block main">
+          <div className="button-bar">
+            <button className="btn red-light">批次刪除</button>
+            <button className="btn orange-light">新增域名</button>
+          </div>
+          <table className="table">
+            <thead>
+              <tr className="">
+                <th>批次</th>
+                <th>欄位名稱</th>
+                <th>建立時間</th>
+                <th>備註</th>
+                <th>功能</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td>123.123.12.111</td>
+                <td>2020-04-09 12:00</td>
+                <td>永久封鎖</td>
+                <td>
+                  <button className="btn rounded red-light">
+                    <Icon name="delete" />
+                    刪除
+                  </button>
+                  <button className="btn rounded green-light">
+                    <Icon name="edit" />
+                    修改
+                  </button>
+                  <button className="btn rounded green-light">
+                    <Icon name="edit" />
+                    備註
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>123.123.12.111</td>
+                <td>2020-04-09 12:00</td>
+                <td>永久封鎖</td>
+                <td>
+                  <button className="btn rounded red-light">
+                    <Icon name="delete" />
+                    刪除
+                  </button>
+                  <button className="btn rounded green-light">
+                    <Icon name="edit" />
+                    修改
+                  </button>
+                  <button className="btn rounded green-light">
+                    <Icon name="edit" />
+                    備註
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </DefaultTemp>
     </WanComponent>
   );
 }
