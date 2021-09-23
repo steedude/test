@@ -9,7 +9,7 @@ import Dns from "./page/Dns";
 import Log from "./page/Log";
 import Waf from "./page/Waf";
 import Wan from "./page/Wan";
-
+import { ToastContainer } from "react-toastify";
 let persistor = persistStore(store);
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
           <Route path="/log" component={Log} />
           <Route path="/waf" component={Waf} />
           <Route path="/wan" component={Wan} />
+          <ToastContainer />
         </div>
       </PersistGate>
     </Provider>

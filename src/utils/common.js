@@ -5,7 +5,7 @@ import { version } from "../../package.json";
 import CryptoJS from "crypto-js";
 import store from "../store";
 import { addTodo } from "../store/slice/todo";
-// import store from "../store";
+import { toast } from "react-toastify";
 import { createBrowserHistory } from "history";
 const config = require(`../configs/basic/${process.env.REACT_APP_BASIC_TYPE}.js`).defaultConfig;
 const api = axios.create({
@@ -241,7 +241,7 @@ export function getAjax(oldUrl, oldData = {}) {
           createBrowserHistory.push("/acc");
         }
 
-        showMsg(response.msg);
+        showToast(response.msg);
       }
 
       // console.log(response);
@@ -264,11 +264,11 @@ export function getAjax(oldUrl, oldData = {}) {
       ) {
         if (navigator.onLine == false) {
           //请用此写法，而不是!navigator.onLine(Irene20190109)
-          showMsg(store.default.state.languageConfig.common_netErr);
+          showToast(store.default.state.languageConfig.common_netErr);
         } else {
           if (oldData.key === "GAME_ISSUE_INFO_VN_HCM") return false; //TODO暫時
           if (status != "1000") {
-            showMsg(store.default.state.languageConfig.common_netErr);
+            showToast(store.default.state.languageConfig.common_netErr);
           }
           return false;
         }
@@ -866,14 +866,9 @@ export function getUrlParam(name) {
   return null; //返回參數值
 }
 
-export function showMsg(html, fun, cancel = false, otherBtn) {
-  const body = document.getElementsByTagName("body")[0];
-  body.style = "overflow:hidden";
-  //   Vue.prototype.$bus.$emit("showMsg", html, fun, cancel, otherBtn);
-}
-
-export function showToast(msg) {
+export function showToast(msg, type = "success") {
   if (msg) {
-    // Vue.prototype.$bus.$emit("toast", msg);
+    type === "error" && toast.error(msg);
+    type === "success" && toast.success(msg);
   }
 }
