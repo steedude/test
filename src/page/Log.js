@@ -1,13 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import DefaultTemp from "../components/DefaultTemp";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUserById } from "../store/slice/apiTest";
 import styled from "styled-components";
+import BlackListPopup from "../components/BlackListPopup";
 const LogComponent = styled.div``;
 function Log() {
   const cityList = useSelector((state) => state.users.city);
   const dispatch = useDispatch();
+  const [showPop, setShowPop] = useState(false);
+  const closePop = () => {
+    setShowPop(false);
+  };
 
+  const handlePop = () => {
+    setShowPop((prevCount) => !prevCount);
+  };
   useEffect(() => {
     console.log("cityList---", cityList);
     dispatch(fetchUserById(123));
@@ -27,6 +35,10 @@ function Log() {
             );
           })}
         </ul>
+        {showPop && <BlackListPopup closePop={closePop} />}
+        <button className="btn purple" onClick={handlePop}>
+          彈窗測試
+        </button>
       </DefaultTemp>
     </LogComponent>
   );
