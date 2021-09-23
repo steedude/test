@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "../components/Nav";
 import Icon from "../components/Icon";
 import DefaultTemp from "../components/DefaultTemp";
 import styled from "styled-components";
-
+import DropDown from "../components/DropDown";
 const WanComponent = styled.div`
   .title-bar {
     display: flex;
@@ -30,6 +30,18 @@ const WanComponent = styled.div`
 `;
 
 function Wan() {
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  useEffect(() => {
+    console.log("data-change", selectedOption);
+  }, [selectedOption]);
+
   return (
     <WanComponent>
       <DefaultTemp>
@@ -42,6 +54,7 @@ function Wan() {
           </button>
         </div>
         <div className="search-bar">
+          <DropDown defaultValue={selectedOption} onChange={setSelectedOption} options={options} />
           <input type="text" placeholder="站點名稱搜尋" />
           <button className="btn purple">
             <Icon name="serch" />
