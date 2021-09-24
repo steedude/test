@@ -16,20 +16,43 @@ function BlackListPopup(props) {
       footer={
         <>
           <button className="btn red">取消</button>
-          <button className="btn blue">送出</button>
+          <button type="submit" form="black-form" className="btn blue">
+            送出
+          </button>
         </>
       }
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
-        firstName:
-        <input {...register("firstName")} /> {/* register an input */}
-        lastName:
-        <input {...register("lastName", { required: true })} />
-        {errors.lastName && <p>Last name is required.</p>}
-        age:
-        <input {...register("age", { pattern: /\d+/ })} />
-        {errors.age && <p>Please enter number for age.</p>}
-        <input type="submit" />
+      <form id="black-form" onSubmit={handleSubmit(onSubmit)}>
+        <ul className="popup-list">
+          <li>
+            <span>Time</span>
+            <input {...register("time")} /> {/* register an input */}
+          </li>
+          <li>
+            <span>Auth</span>
+            <input defaultValue="test" {...register("Auth", { required: true })} />
+            {errors.Auth && <p>auth is required.</p>}
+          </li>
+          <li>
+            <span>Action</span>
+            <input placeholder="Action" {...register("age", { pattern: /\d+/ })} />
+            {errors.age && <p>Please enter number for age.</p>}
+          </li>
+          <li>
+            <span>Status</span>
+            <input {...register("Status", { required: true })} type="radio" value="Active" />
+            <input {...register("Status", { required: true })} type="radio" value="Inactive" />
+          </li>
+          <li>
+            <span>IP</span>
+            <select {...register("Title", { required: true })}>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Dr">Dr</option>
+            </select>
+          </li>
+        </ul>
       </form>
     </Popup>
   );
