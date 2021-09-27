@@ -32,8 +32,7 @@ export const customStyles = {
   singleValue: (provided, state) => ({
     ...provided,
     borderRadius: "4px",
-    boxShadow: "0px 6px 6px rgba(0,0,0, 0.1)",
-    backgroundColor: "blue",
+    // backgroundColor: "blue",
     opacity: state.isDisabled ? 0.5 : 1,
   }),
 };

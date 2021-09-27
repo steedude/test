@@ -8,6 +8,12 @@ const PopComponent = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
+  input,
+  textarea {
+    box-shadow: none;
+    background: #f0f3ff;
+    width: calc(100% - 50px);
+  }
   .mask {
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
@@ -24,6 +30,7 @@ const PopComponent = styled.div`
     right: 0;
     bottom: 0;
     margin: auto;
+    padding: 10px 0 20px;
     &.large {
       width: 800px;
       height: 600px;
@@ -38,10 +45,27 @@ const PopComponent = styled.div`
     padding-top: 10px;
     i {
       position: absolute;
-      right: 10px;
-      top: 10px;
+      right: 20px;
+      top: 20px;
       cursor: pointer;
     }
+  }
+  .popup-list {
+    width: 80%;
+    margin: 0 auto;
+    li {
+      display: flex;
+      height: 50px;
+      align-items: center;
+      .list-title {
+        display: block;
+        width: 30%;
+        text-align: left;
+      }
+    }
+  }
+  .footer {
+    margin-top: 20px;
   }
 `;
 
