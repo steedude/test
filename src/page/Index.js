@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Nav from "../components/Nav";
 import { withRouter } from "react-router-dom";
 import style from "../style/page/index.module.scss";
 import { showToast } from "../utils/common";
+import { getList } from "../utils/tools";
 function Index(props) {
   const notify = () => showToast("🦄Wow so easy!", "error");
   const list = [
@@ -11,6 +12,10 @@ function Index(props) {
     { name: "域名管家", img: "logo_dns", link: "/dns" },
     { name: "SWAF", img: "logo_waf", link: "/waf" },
   ];
+
+  useEffect(() => {
+    getList();
+  }, []);
 
   const goLink = (link) => {
     props.history.push(link);
