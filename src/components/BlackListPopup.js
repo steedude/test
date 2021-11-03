@@ -8,6 +8,7 @@ function BlackListPopup(props) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => console.log(data);
   const [age, setAge] = useState(0);
 
